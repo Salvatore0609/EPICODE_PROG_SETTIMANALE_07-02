@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Stile dropdown */
+.dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 0 !important;
+}
+
+.dropdown-item {
+  color: white !important;
+}
+
+.dropdown-item:hover {
+  color: black !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.dropdown-divider {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Carosello personalizzato */
+.movie-carousel-container {
+  overflow-x: scroll;
+  padding-bottom: 10px;
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #333;
+}
+
+.movie-carousel-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.movie-carousel-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.movie-carousel-container:-webkit-scrollbar {
+  display: none;
+}
+
+.movie-carousel-container:hover::-webkit-scrollbar {
+  opacity: 1;
+}
+
+.movie-carousel-container:hover::-webkit-scrollbar-thumb {
+  background-color: #444;
+}
+
+.movie-carousel-row {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-left: -10px;
+  justify-content: flex-start;
+}
+
+.movie-item {
+  flex-shrink: 0;
+  background-color: #333;
+  border-radius: 10px;
+  padding: 10px;
+  width: 200px;
+  min-width: 150px;
+}
+
+/* Su schermi di tablet (1024px e sotto) */
+@media (max-width: 1024px) {
+  .movie-item {
+    width: 25vw;
+    min-width: 150px;
+  }
+}
+
+/* Su schermi piccoli (767px e sotto) */
+@media (max-width: 767px) {
+  .movie-carousel-container {
+    overflow-x: hidden;
+  }
+
+  .movie-carousel-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .movie-item {
+    width: 45vw;
+    min-width: 150px;
+  }
+}
+
+/* Schermi molto piccoli (480px e sotto) */
+@media (max-width: 480px) {
+  .movie-item {
+    width: 80vw;
+    min-width: 150px;
+  }
+}
