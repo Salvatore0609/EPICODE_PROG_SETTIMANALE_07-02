@@ -8,11 +8,12 @@ class MovieGallery extends Component {
     movies: [],
     loading: true,
     error: null,
+    selectedMovie: null,
   };
 
   async componentDidMount() {
     try {
-      const response = await fetch(`https://www.omdbapi.com/?s=${this.props.category}&apikey=${API_KEY}`);
+      const response = await fetch(`https://www.omdbapi.com/?s=${this.props.title}&apikey=${API_KEY}`);
       if (response.ok) {
         const data = await response.json();
         if (data.Search) {
@@ -30,8 +31,12 @@ class MovieGallery extends Component {
     }
   }
 
+  handleImageClick = (movie) => {
+    this.setState({ selectedMovie: movie === this.state.selectedMovie ? null : movie });
+  };
+
   render() {
-    const { movies, loading, error } = this.state;
+    const { movies, loading, error, selectedMovie } = this.state;
 
     return (
       <Container fluid className="text-light">
@@ -40,11 +45,12 @@ class MovieGallery extends Component {
 
         {/* Carosello orizzontale */}
         <div className="movie-carousel-container pt-5 pb-2">
-          <h4>{this.props.category} Movies</h4>
+          <h4>{this.props.title} - Movies</h4>
+
           <Row className="movie-carousel-row px-2 gap-3">
-            {movies.map((movie, index) => (
-              <Col key={index} className="movie-item mb-4 text-center" xs={6} sm={4} md={3} lg={2}>
-                <div>
+            {movies.map((movie) => (
+              <Col key={movie} className="movie-item p-0 text-center" xs={6} sm={4} md={3} lg={2}>
+                <div onClick={() => this.handleImageClick(movie)} style={{ cursor: "pointer" }}>
                   <img
                     className="img-fluid"
                     src={movie.Poster}
@@ -52,12 +58,17 @@ class MovieGallery extends Component {
                     style={{
                       maxHeight: "100%",
                       width: "auto",
+                      height: 400,
                       objectFit: "contain",
                     }}
                   />
                 </div>
-                <h5 className="mt-2">{movie.Title}</h5>
-                <p className="text-secondary">{movie.Year}</p>
+                {selectedMovie === movie && (
+                  <div className="movie-text">
+                    <h5 className="mt-2">{movie.Title}</h5>
+                    <p className="text-secondary mb-0">{movie.Year}</p>
+                  </div>
+                )}
               </Col>
             ))}
           </Row>
