@@ -52,7 +52,6 @@
   min-width: 400px;
 }
 
-/* Effetto di ingrandimento */
 .movie-item:hover img {
   transform: scale(1.1);
 }
