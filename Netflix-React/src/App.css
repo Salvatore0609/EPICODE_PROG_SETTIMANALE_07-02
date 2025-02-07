@@ -28,20 +28,7 @@
   padding-bottom: 10px;
   position: relative;
   scrollbar-width: thin;
-  scrollbar-color: #888 #333;
-}
-
-.movie-carousel-container::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 4px;
-}
-
-.movie-carousel-container::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.movie-carousel-container:-webkit-scrollbar {
-  display: none;
+  scrollbar-color: #888 #33333300;
 }
 
 .movie-carousel-container:hover::-webkit-scrollbar {
@@ -55,14 +42,19 @@
 .movie-carousel-row {
   display: flex;
   flex-wrap: nowrap;
-  margin-left: -10px;
   justify-content: flex-start;
 }
 
 .movie-item {
   flex-shrink: 0;
-  width: 400px;
-  min-width: 150px;
+  overflow: hidden;
+  height: auto;
+  min-width: 400px;
+}
+
+/* Effetto di ingrandimento */
+.movie-item:hover img {
+  transform: scale(1.1);
 }
 
 /* Su schermi di tablet (1024px e sotto) */

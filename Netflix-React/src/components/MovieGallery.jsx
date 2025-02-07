@@ -60,6 +60,7 @@ class MovieGallery extends Component {
                       width: "auto",
                       height: 400,
                       objectFit: "contain",
+                      transition: "transform 0.3s ease-in-out",
                     }}
                   />
                 </div>
