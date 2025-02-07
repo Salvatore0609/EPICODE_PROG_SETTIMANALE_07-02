@@ -16,7 +16,7 @@ class MovieGallery extends Component {
       if (response.ok) {
         const data = await response.json();
         if (data.Search) {
-          this.setState({ movies: data.Search});
+          this.setState({ movies: data.Search });
         } else {
           throw new Error("Nessun film trovato");
         }
@@ -24,14 +24,11 @@ class MovieGallery extends Component {
         throw new Error("Errore nel recupero dei dati");
       }
     } catch (err) {
-      this.setState({ error: err.message});
-    }
-    finally() {
-        this.setState({loading: false})
+      this.setState({ error: err.message });
+    } finally {
+      this.setState({ loading: false });
     }
   }
-
-
 
   render() {
     const { movies, loading, error } = this.state;
