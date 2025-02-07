@@ -7,10 +7,18 @@ const Footer = () => {
       <Row className="justify-content-center">
         <Col xs={6}>
           <div className="mb-2">
-            <Facebook className="me-2 text-secondary" size={20} />
-            <Instagram className="me-2 text-secondary" size={20} />
-            <TwitterX className="me-2 text-secondary" size={20} />
-            <Youtube className="text-secondary" size={20} />
+            <a href="https://www.facebook.com/netflixitalia/?locale=it_IT">
+              <Facebook className="me-2 text-secondary" size={20} />
+            </a>
+            <a href="https://www.instagram.com/netflixit/?hl=it">
+              <Instagram className="me-2 text-secondary" size={20} />
+            </a>
+            <a href="https://x.com/netflix">
+              <TwitterX className="me-2 text-secondary" size={20} />
+            </a>
+            <a href="https://www.youtube.com/channel/UCWOA1ZGywLbqmigxE4Qlvuw">
+              <Youtube className="text-secondary" size={20} />
+            </a>
           </div>
 
           <Row className="text-secondary" style={{ fontSize: "0.8em" }}>
