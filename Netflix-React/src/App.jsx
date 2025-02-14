@@ -13,7 +13,7 @@ function App() {
       <TopBar />
       <OrganizationArea />
       <Home />
-      {/* <AccountSettings /> */}
+      {/* <AccountSettings />  */}
       {/* <NetflixProfile /> */}
       <Footer />
     </Container>
